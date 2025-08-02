@@ -1,7 +1,7 @@
 __pycache__/
 game/__pycache__
 game_graphics/__pycache__
-ag/__pycache__
+ai/__pycache__
 *.pyc
 .pytest_cache/
 .env

@@ -16,16 +16,21 @@ class Linear_QNetwork(nn.Module):
         x = self.linear2(x)
         return x
     
-    def save(self):
-        if not os.path.exists('models'):
-            os.makedirs('models')
-        torch.save(self.state_dict(), 'models/model_66_longplay.pth')
+    def save(self, model_filename):
+        # if not os.path.exists('models'):
+        #     os.makedirs('models')
+        try:
+            torch.save(self.state_dict(), model_filename)
+        except Exception as e:
+            print(f'Could not save the model to {model_filename} due to {type(e).__name__}.')
+            raise e
 
-    def load(self, path='models/model.pth'):
-        if os.path.exists(path):
-            self.load_state_dict(torch.load(path))
-        else:
-            raise FileNotFoundError(f"Model file {path} not found.")
+    def load(self, model_filename):
+        try:
+            self.load_state_dict(torch.load(model_filename, weights_only=True))
+        except Exception as e:
+            print(f'Could not load a model from {model_filename} due to {type(e).__name__}.')
+            raise e
         
 class QTrainer():
     def __init__(self, model, lr=0.001, gamma=0.9):

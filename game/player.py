@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 import random
 import config
-from agent import DQNAgent
+from ai.agent import DQNAgent
 
 # An abstract superclass for both human and AI players.
 class Player(ABC):
@@ -34,14 +34,14 @@ class RandomAIPlayer(Player):
         return random.choice(valid_moves) if valid_moves else None
 
 class AIPlayer(Player):
-    def __init__(self, player_name, model_filename='model/model.pth'):
+    def __init__(self, player_name, model_filename):
         super().__init__(player_name, is_human=False)
-        self.agent = DQNAgent(epsilon=0)
+        self.agent = DQNAgent(config, play_mode=True)
         try:
             self.agent.model.load(model_filename)
             print(f'Playing against AI. Loaded trained model {model_filename}.')
         except FileNotFoundError:
-            print('No trained model found.')
+            print(f'No model {model_filename} found.')
             return
 
     def get_move(self, game_state, click_info=None):

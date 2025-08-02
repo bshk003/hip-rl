@@ -30,3 +30,21 @@ MSGBOX_RECT = pygame.Rect(WIDTH // 2 - 100, HEIGHT // 2 - 20, 200, 40)
 
 FONT = None
 FONT_SIZE = 28
+
+# DQN training parameters.
+MAX_MEMORY = 100000
+BATCH_SIZE = 64
+LR = 0.001
+SAVE_EVERY = 80 
+
+EPSILON_START = 0.99
+EPSILON_END = 0.01
+EPSILON_DECAY = 20000
+
+GAMMA = 0.9
+
+TARGET_UPDATE_FREQUENCY = 100
+
+# When reporting on training progress.
+ROLLING_AVG_WINDOW = 1000
+

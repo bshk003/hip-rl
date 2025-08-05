@@ -21,7 +21,7 @@ No draws are possible on a $n$-by-$n$ board for $n>6$.
 On a $2n$-by-$2n$ board, the second player has a strategy that guarantees at least a draw if $n\leq 3$ and a win for larger $n$. This can be attained by playing moves symmetrically, with respect to the central vertical or horizontal axis of the board, to the first-player moves. The strategy, naturally, does not apply to the odd-by-odd board. In such case, "passing a move" by covering the central cell at the first step and then playing central-symmetrically does not help the first player in general.
 
 #### The project
-We train a Deep Q-Network with a single agent playing against itself on a board of a given dimension.Effectively, it is a cooperative mode since the reward function for the single agent returns the same penalty value, whenever either one of the two players (governed by the same agent) loses. Trained over 50000 episodes on a 6-by-6 board, the bots attain the mean game length of about 27 moves.
+We train a Deep Q-Network with a single agent playing against itself on a board of a given dimension.Effectively, it is a cooperative mode since the reward function for the single agent returns the same penalty value, whenever either one of the two players (governed by the same agent) loses. Trained over 50000 episodes on a 6-by-6 board, the bot achieves the mean game length of about 27 moves.
 
 #### Structure
 See `game/` for the game logic module. Simple graphics is rendered by pygame (`game_graphics/`). The DQN agent operates on a two-layer NN model run in pytorch (`ai/`). 

@@ -8,7 +8,7 @@ The game of Hip, introduced by Martin Gardner back in the 1950s, is a board game
   <img src="square_2.png" width="250px"/>
 </div>
 
-On a $n$-by-$n$ board for $n\leq 6$ a game can end in a draw, though on the 6-by-6 board draws are pretty rare. In fact, originally, a puzzle proposed by M.Gardner was to find at least one drawing position on such a board. A complete answer to that puzzle (can be found by a simple backtracking algorithm) is that there are 24 6-by-6 draws in total, which can be obtained by rotations and reflections of the following 3 configurations:
+On a n-by-n board for $n\leq 6$ a game can end in a draw, though on the 6-by-6 board the draws are pretty rare. In fact, originally, a puzzle proposed by M.Gardner was to find at least one drawing position on such a board. A complete answer to that puzzle (which can be found by a simple backtracking algorithm) is that there are 24 6-by-6 draws in total, which can be obtained by rotations and reflections of the following 3 configurations:
 
 <div align="center">
   <img src="draw_0.png" width="250px"/>
@@ -16,9 +16,9 @@ On a $n$-by-$n$ board for $n\leq 6$ a game can end in a draw, though on the 6-by
   <img src="draw_2.png" width="250px"/>
 </div>
 
-No draws are possible on a $n$-by-$n$ board for $n>6$.
+No draws are possible on a n-by-n board for $n>6$.
 
-On a $2n$-by-$2n$ board, the second player has a strategy that guarantees at least a draw if $n\leq 3$ and a win for larger $n$. This can be attained by playing moves symmetrically, with respect to the central vertical or horizontal axis of the board, to the first-player moves. The strategy, naturally, does not apply to the odd-by-odd board. In such case, "passing a move" by covering the central cell at the first step and then playing central-symmetrically does not help the first player in general.
+On a 2n-by-2n board, the second player has a strategy that guarantees at least a draw if $n\leq 3$ and a win for larger $n$. This can be attained by playing moves symmetrically, with respect to the central vertical or horizontal axis of the board, to the first-player moves. The strategy, naturally, does not apply to the odd-by-odd board. In such case, "passing a move" by covering the central cell at the first step and then playing central-symmetrically does not help the first player in general.
 
 #### The project
 We train a Deep Q-Network with a single agent playing against itself on a board of a given dimension.Effectively, it is a cooperative mode since the reward function for the single agent returns the same penalty value, whenever either one of the two players (governed by the same agent) loses. Trained over 50000 episodes on a 6-by-6 board, the bot achieves the mean game length of about 27 moves.
